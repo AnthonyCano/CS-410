@@ -15,5 +15,10 @@ public class EnemyGlowEffect : MonoBehaviour
     
     public Color farColor =  Color.white;
     public Color closeColor = Color.red;
+
+    void Start()
+    {
+        
+    }
     
 }
