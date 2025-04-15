@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 /* 
@@ -10,8 +12,8 @@ public class EnemyGlowEffect : MonoBehaviour
     private Transform player;
     private Renderer enemyRenderer;
     
-    private float minDistance = 3f;
-    private float maxDistance = 8f;
+    private float minDistance = 5f;
+    private float maxDistance = 15f;
     
     public Color farColor =  Color.white;
     public Color closeColor = Color.red;
@@ -20,14 +22,19 @@ public class EnemyGlowEffect : MonoBehaviour
     {  
         player = GameObject.FindGameObjectWithTag("Player").transform;
         enemyRenderer = GetComponentInChildren<Renderer>();
+        enemyRenderer.material = new Material(enemyRenderer.material);
+
     }
     
     void Update()
     {
         float distance = Vector3.Distance(transform.position, player.position);
-        float t = Mathf.InverseLerp(maxDistance, minDistance, distance);
-        Color lerpColor =  Color.Lerp(closeColor, farColor, t);
-        enemyRenderer.material.color = lerpColor;
+        Debug.Log($"Distance: {distance}");
 
+        float t = Mathf.InverseLerp(maxDistance, minDistance, distance);
+        Color lerpColor = Color.Lerp(closeColor, farColor, t);
+
+        enemyRenderer.materials[1].color = lerpColor; 
     }
+
 }
