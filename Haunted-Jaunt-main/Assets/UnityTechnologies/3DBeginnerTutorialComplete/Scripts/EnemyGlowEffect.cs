@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class EnemyGlowEffect
+public class EnemyGlowEffect : MonoBehaviour
 {
+
     
 }
