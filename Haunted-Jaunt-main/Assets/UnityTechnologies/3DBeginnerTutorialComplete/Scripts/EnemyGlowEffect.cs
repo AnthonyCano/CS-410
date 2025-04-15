@@ -17,8 +17,14 @@ public class EnemyGlowEffect : MonoBehaviour
     public Color closeColor = Color.red;
 
     void Start()
-    {
-        
+    {  
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        enemyRenderer = GetComponent<Renderer>();        
     }
     
+    void Update()
+    {
+        float distance = Vector3.Distance(transform.position, player.position);
+        
+    }
 }
