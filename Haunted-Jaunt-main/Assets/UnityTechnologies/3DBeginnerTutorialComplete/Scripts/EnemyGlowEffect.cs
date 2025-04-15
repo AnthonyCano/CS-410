@@ -32,7 +32,7 @@ public class EnemyGlowEffect : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(transform.position, player.position);
-        Debug.Log($"Distance: {distance}");
+        // Debug.Log($"Distance: {distance}");
 
         float t = Mathf.InverseLerp(minDistance, maxDistance, distance);
         Color lerpColor = Color.Lerp(closeColor, farColor, t);
