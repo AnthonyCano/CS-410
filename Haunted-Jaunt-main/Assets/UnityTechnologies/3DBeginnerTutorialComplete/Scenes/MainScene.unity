@@ -2058,6 +2058,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 840455984}
     m_Modifications:
+    - target: {fileID: 333926712765479047, guid: 39d0626ce76d1884da050e0e509a5540,
+        type: 3}
+      propertyPath: farColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 333926712765479047, guid: 39d0626ce76d1884da050e0e509a5540,
+        type: 3}
+      propertyPath: farColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 333926712765479047, guid: 39d0626ce76d1884da050e0e509a5540,
+        type: 3}
+      propertyPath: farColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 333926712765479047, guid: 39d0626ce76d1884da050e0e509a5540,
+        type: 3}
+      propertyPath: closeColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 333926712765479047, guid: 39d0626ce76d1884da050e0e509a5540,
+        type: 3}
+      propertyPath: closeColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4078855156467671687, guid: 39d0626ce76d1884da050e0e509a5540,
         type: 3}
       propertyPath: player
@@ -2613,6 +2638,11 @@ PrefabInstance:
       propertyPath: 'waypoints.Array.data[1]'
       value: 
       objectReference: {fileID: 449659950}
+    - target: {fileID: 2393753035882122744, guid: abeb186619cc7e6419cb81e1e4dfa162,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4257817316179491928, guid: abeb186619cc7e6419cb81e1e4dfa162,
         type: 3}
       propertyPath: player
