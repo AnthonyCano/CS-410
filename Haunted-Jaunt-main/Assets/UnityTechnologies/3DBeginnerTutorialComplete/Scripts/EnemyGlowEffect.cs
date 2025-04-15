@@ -19,12 +19,15 @@ public class EnemyGlowEffect : MonoBehaviour
     void Start()
     {  
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        enemyRenderer = GetComponent<Renderer>();        
+        enemyRenderer = GetComponentInChildren<Renderer>();
     }
     
     void Update()
     {
         float distance = Vector3.Distance(transform.position, player.position);
-        
+        float t = Mathf.InverseLerp(maxDistance, minDistance, distance);
+        Color lerpColor =  Color.Lerp(closeColor, farColor, t);
+        enemyRenderer.material.color = lerpColor;
+
     }
 }
