@@ -7,12 +7,12 @@ public class GhostFOV : MonoBehaviour
     public Transform player;
     public float detectionAngle = 60f; // degrees
     public float detectionRange = 10f;
-
+    public AudioSource ghostAudio;
+    public ParticleSystem scareEffect;
+    private bool hasScaredPlayer = false; // checker for when to play sound and effects
+ 
     void Start()
     {
-        // This is what I had to do to get it to work
-        // intead of just moving johnlemon into the player field 
-        // in the script for the ghost prefab
         if (player == null)
         {
             GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -22,26 +22,41 @@ public class GhostFOV : MonoBehaviour
             }
         }
     }
+
     void Update()
     {
         Vector3 toPlayer = (player.position - transform.position).normalized;
         float distance = Vector3.Distance(player.position, transform.position);
 
-        // Check if player is in range
         if (distance <= detectionRange)
         {
-            // Dot product between ghost forward and direction to player
             float dot = Vector3.Dot(transform.forward, toPlayer);
-
-            // Calculate the angle threshold
             float angleThreshold = Mathf.Cos(detectionAngle * Mathf.Deg2Rad / 2f);
 
-            // Debugging code
-            // if (dot > angleThreshold)
-            // {
-            //     Debug.Log("Ghost sees you!");
-            // }
+            if (dot > angleThreshold)
+            {
+                if (!hasScaredPlayer)
+                {
+                    hasScaredPlayer = true;
+
+                    if (ghostAudio != null && !ghostAudio.isPlaying)
+                        ghostAudio.Play();
+
+                    if (scareEffect != null && !scareEffect.isPlaying)
+                        scareEffect.Play();
+
+                    // Debug log
+                    Debug.Log("Ghost sees you and reacts!");
+                }
+            }
+            else
+            {
+                hasScaredPlayer = false;
+            }
+        }
+        else
+        {
+            hasScaredPlayer = false;
         }
     }
-    
 }
