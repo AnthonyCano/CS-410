@@ -6,7 +6,7 @@ public class GhostFOV : MonoBehaviour
 {
     public Transform player;
     public float detectionAngle = 60f; // degrees
-    public float detectionRange = 10f;
+    public float detectionRange = 8f;
     public AudioSource ghostAudio;
     public ParticleSystem scareEffect;
     private bool hasScaredPlayer = false; // checker for when to play sound and effects
@@ -39,11 +39,14 @@ public class GhostFOV : MonoBehaviour
                 {
                     hasScaredPlayer = true;
 
-                    if (ghostAudio != null && !ghostAudio.isPlaying)
+                    if (ghostAudio != null){
+                        Debug.Log("Playing ghost sound!");
                         ghostAudio.Play();
+                    }
 
-                    if (scareEffect != null && !scareEffect.isPlaying)
+                    if (scareEffect != null && !scareEffect.isPlaying){
                         scareEffect.Play();
+                    }
 
                     // Debug log
                     Debug.Log("Ghost sees you and reacts!");
