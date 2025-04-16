@@ -815,7 +815,7 @@ MonoBehaviour:
   player: {fileID: 0}
   detectionAngle: 60
   detectionRange: 10
-  ghostAudio: {fileID: 6986812540457888193}
+  ghostAudio: {fileID: 0}
   scareEffect: {fileID: 0}
 --- !u!1 &5863192054190611860
 GameObject:

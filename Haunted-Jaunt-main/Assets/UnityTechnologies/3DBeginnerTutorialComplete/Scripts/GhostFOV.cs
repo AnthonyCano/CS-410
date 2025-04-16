@@ -5,7 +5,7 @@ using UnityEngine;
 public class GhostFOV : MonoBehaviour
 {
     public Transform player;
-    public float detectionAngle = 60f; // degrees
+    public float detectionAngle = 30f; // degrees
     public float detectionRange = 8f;
     public AudioSource ghostAudio;
     public ParticleSystem scareEffect;
